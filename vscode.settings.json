@@ -1,0 +1,25 @@
+{
+    "prettier.eslintIntegration": true,
+    "prettier.singleQuote": true,
+    "prettier.tabWidth": 4,
+    "prettier.trailingComma": "all",
+    "eslint.autoFixOnSave": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.startupEditor": "newUntitledFile",
+    "atomKeymap.promptV3Features": true,
+    "window.zoomLevel": 1,
+    "todohighlight.keywords": ["TODO", "NOTE", "FIXME", "REMOVE", "UNUSED", "DONE"],
+    "todohighlight.defaultStyle": {
+        "color": "#FFF",
+        "textDecoration": "underline",
+        "cursor": "pointer",
+        "backgroundColor": "transparent"
+    },
+    "prettier.printWidth": 100,
+    "explorer.confirmDragAndDrop": false,
+    "workbench.colorTheme": "Atom One Dark",
+    "javascript.updateImportsOnFileMove.enabled": "always"
+}

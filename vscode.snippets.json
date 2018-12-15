@@ -1,0 +1,127 @@
+{
+    "Console log": {
+        "scope": "javascript",
+        "prefix": "lg",
+        "body": ["console.log($1)"],
+        "description": "Console log"
+    },
+    "Test Pass": {
+        "scope": "javascript",
+        "prefix": "testpass",
+        "body": ["test('pass', async t => {", "t.pass()", "})"],
+        "description": "Console log"
+    },
+    "Cursor Loop": {
+        "scope": "javascript",
+        "prefix": "cursorloop",
+        "body": [
+            "const $1Model = require(src('packages/$2/model'))",
+            "",
+            "module.exports = function $2Updates() {",
+            "return new Promise(function $2UpdatesPromise(resolve) {",
+            "const errors = []",
+            "",
+            "$1Model.find({}).lean().cursor({ batchSize: 1000 })",
+            ".on('data', async function $2CursorWorker ($2) {",
+            "try {",
+            "$3",
+            "} catch (error) { errors.push(error) } })",
+            ".on('end', function $CursorEnd() { return resolve(errors) }) })  }"
+        ],
+        "description": "I am lazy to write all of that"
+    },
+    "Consumer": {
+        "scope": "javascript",
+        "prefix": "consumerwork",
+        "body": [
+            "const winston = require('winston')",
+            "",
+            "const queueConnection = require(src('queue/connection'))",
+            "",
+            "const WORKER_TAG = '[CHARGE-DUNNING WORKER]'",
+            "",
+            "const messages = {",
+            "start: `${WORKER_TAG} Payment worker started`,",
+            "error_consume: charge =>`${WORKER_TAG} `",
+            "}",
+            "",
+            "module.exports = async function $1Worker() {",
+            "winston.log('debug', messages.start)",
+            "",
+            "queueConnection.consume('$2', async function $1Consumer(message) {",
+            "// Consume messages only clutter the logs",
+            "",
+            "try {",
+            "",
+            "    } catch (error) {",
+            "console.log(error) // eslint-disable-line",
+            "",
+            "winston.log('info', messages.error_consume(charge))",
+            "throw error",
+            "    }",
+            "})",
+            "}"
+        ],
+        "description": "I am lazy to write all of that"
+    },
+    "Console log Flag": {
+        "scope": "javascript",
+        "prefix": "fl",
+        "body": ["console.log('@@$1', $1)"],
+        "description": "Console log"
+    },
+    "Require": {
+        "scope": "javascript",
+        "prefix": "rq",
+        "body": ["const $1 = require('$2')"],
+        "description": "Require simple"
+    },
+    "Require Same": {
+        "scope": "javascript",
+        "prefix": "rs",
+        "body": ["const $1 = require('$1')"],
+        "description": "Require simple"
+    },
+    "Require Same Dir": {
+        "scope": "javascript",
+        "prefix": "rsd",
+        "body": ["const $1 = require('./$1')"],
+        "description": "Require in the same directory"
+    },
+    "FindOne": {
+        "scope": "javascript",
+        "prefix": "fno",
+        "body": ["findOne({ $1 })"],
+        "description": "Require in the same directory"
+    },
+    "Model Require": {
+        "scope": "javascript",
+        "prefix": "mr",
+        "body": ["const $1Model = require(src('packages/$2/model'))"],
+        "description": "Require snippet for models"
+    },
+    "Utils Require": {
+        "scope": "javascript",
+        "prefix": "ur",
+        "body": ["const { $1 } = require(src('utils/$2'))"],
+        "description": "Require snippet for utils"
+    },
+    "Try/Catch": {
+        "scope": "javascript",
+        "prefix": "tc",
+        "body": ["try {", "$1", "} catch (error) {", " ", "}"],
+        "description": "TryCatch snippet for service"
+    },
+    "exports": {
+        "scope": "javascript",
+        "prefix": "exp",
+        "body": ["module.exports = async function $1 ($2) { }"],
+        "description": "TryCatch snippet for service"
+    },
+    "Require Filesystem stuff": {
+        "scope": "javascript",
+        "prefix": "fsp",
+        "body": ["const fs = require('fs')", "const path = require('path')"],
+        "description": "Simple ava start boilerplate"
+    }
+}
